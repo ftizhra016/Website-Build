@@ -40,4 +40,4 @@ RUN composer install --no-interaction --no-plugins --no-scripts --no-dev --optim
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/vendor
 
 # Jalankan migrasi database otomatis, baru kemudian nyalakan web server Apache
-CMD php artisan migrate --force && apache2-foreground
+CMD php artisan config:clear && php artisan cache:clear && php artisan migrate --force && apache2-foreground
