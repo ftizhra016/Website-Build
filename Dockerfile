@@ -1,12 +1,13 @@
 # Gunakan image PHP resmi dengan Apache untuk Laravel
 FROM php:8.2-apache
 
-# Instal ekstensi sistem yang diperlukan untuk Laravel
+# Instal ekstensi sistem yang diperlukan untuk Laravel (ditambahkan libpq-dev)
 RUN apt-get update && apt-get install -y \
     libpng-dev \
     libjpeg-dev \
     libfreetype6-dev \
     libzip-dev \
+    libpq-dev \
     unzip \
     git \
     curl \
