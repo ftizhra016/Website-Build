@@ -39,5 +39,5 @@ RUN composer install --no-interaction --no-plugins --no-scripts --no-dev --optim
 # Berikan izin akses folder setelah vendor terinstal sempurna
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/vendor
 
-# Jalankan Apache di foreground
-CMD ["apache2-foreground"]
+# Jalankan migrasi database otomatis, baru kemudian nyalakan web server Apache
+CMD php artisan migrate --force && apache2-foreground
